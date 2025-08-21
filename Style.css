@@ -1,0 +1,21 @@
+body{
+    background-color: aqua;
+}
+.titulo{
+    margin-left: 600px;
+    margin-right: 600px;
+    color: purple;  
+}
+.imagen img{
+    margin-left: 600px;
+    margin-right: 600px;
+    width: 300px;
+    height: 300px;
+    
+}
+.parrafo{
+    margin-top: 20px;
+    margin-bottom: 20px;
+    margin-left: 500px;
+    margin-right: 500px;
+}
