@@ -22,13 +22,13 @@ body{
 .descripcion{
     color: white;
     margin-left: 25px;
-    font-size: 28px ;
+    font-size: 18px ;
 }
 /* Estilo del parrafo*/
 .parrafo{
     color: white;
     text-align: center;
-    font-size: 28px;
+    font-size: 18px;
 }
 .botones {
     position: relative;
@@ -114,8 +114,8 @@ input[type=text], textarea {
 
 /* Botón de enviar formulario */
 input[type=submit] {
-   padding: 10px 20px;
-    background-color: #90159b;
+    padding: 10px 20px;
+    background-color: #2a169e;
     color: white;
     border: none;
     border-radius: 5px;
@@ -123,5 +123,5 @@ input[type=submit] {
 }
 
 input[type=submit]:hover {
-    background-color: #9512a1;
+    background-color: #2d12c5;
 }
