@@ -9,90 +9,93 @@
         </title>
     </head>
     <body>
-        <h1 class="titulo">
-            la isaac
-        </h1>
-        <h2 class="subtitulo">
-            Creador
-        </h2>
-        <p class="parrafo">
-            Edmund McMillen es un diseñador de videojuegos, 
-            artista y escritor estadounidense nacido en Santa Cruz, 
-            California en 1980. Es conocido por su estilo oscuro, 
-            provocador y autobiográfico, que mezcla temas como la religión, 
-            el cuerpo humano, la infancia y lo grotesco.
-        </p>
-        <h2 class="subtitulo">
-            Historia
-        </h2>
-        <p class="parrafo">
-            El juego sigue a Isaac,
-            un niño que huye al sótano de su casa para escapar de su madre, 
-            quien afirma haber recibido un mensaje de Dios ordenándole sacrificar a su hijo. 
-            Inspirado en la historia bíblica del mismo nombre, el juego mezcla temas oscuros, religiosos y psicológicos.
-        </p>
-        <h2 class=" subtitulo">
-            Jugabilidad
-        </h2>
-        <p class=" descripcion">
-            Es un roguelike con generación procedural: cada partida es única <br> 
-            Controlas a Isaac (u otros personajes desbloqueables) y debes recorrer múltiples pisos llenos de enemigos, jefes, ítems y secretos. <br>
-            Tiene un enfoque de twin-stick shooter (moverse con un stick, disparar con otro). <br>
-            Puedes encontrar centenares de objetos que alteran las habilidades, aspecto y poderes del personaje. <br>
-            Altamente rejugable y con múltiples finales
-        </p>
-        <div class= "botones">
-            <div class= "botones_izquierda">
-                <button onclick="location.href='items/index_item.html'">
-                    items
-                </button> 
-                <button>
-                    trincket
-                </button> 
-                <button>
-                    pildoras
-                </button> 
-                <button>
-                    cartas
-                </button> 
-                <button>
-                    personajes
-                </button>
-            </div>
-                <button id="boton_derecha">
-                    encuesta  
-                </button>
-                <div id="formularioEncuesta" class="formulario">
-                    <div class="contenido_formulario">
-                        <span class="cerrar">&times;</span>
-                        <h3 class= "titulo_formulario">encuesta pagina</h3>
-                        <form id="Encuesta" action="#" method="post">
-                            <div id="mensajeExito">
-                            ¡Encuesta enviada con éxito!
-                            </div>
-                            <label for="nombre">nombre:</label>
-                            <input type="text" id="nombre" name="nombre">
-
-                            <label> en una escala del 1 a 5 que opinas de la pagina</label> <br>
-                            <input type="radio" id="1_estrella" name="valoracion" value="1_estrella">
-                            <label for="1_estrellas">muy mal</label><br><br>    
-                            <input type="radio" id="2_estrellas" name="valoracion" value="2_estrellas">
-                            <label for="2_estrellas">mal</label><br><br>
-                            <input type="radio" id="23_estrellas" name="valoracion" value="3_estrellas">
-                            <label for="3_estrellas">mas o menos</label><br><br>
-                            <input type="radio" id="4_estrellas" name="valoracion" value="4_estrellas">
-                            <label for="4_estrellas">bien</label><br><br>
-                            <input type="radio" id="5_estrellas" name="valoracion" value="5_estrellas">
-                            <label for="5_estrellas">muy bien</label><br><br>
-
-                            <label for="comentario">Comentarios:</label>
-                            <textarea id="comentario" name="comentario" rows="4"></textarea>
-
-                            <input type="submit" value="Enviar">
-                        </form>
-                    </div>  
+        <div class="fondo">
+            <img src="logo2.jpg" alt="fondo" class="fondo-img">
+            <h1 class="titulo">
+                la isaac
+            </h1>
+            <h2 class="subtitulo">
+                Creador
+            </h2>
+            <p class="parrafo">
+                Edmund McMillen es un diseñador de videojuegos, 
+                artista y escritor estadounidense nacido en Santa Cruz, 
+                California en 1980. Es conocido por su estilo oscuro, 
+                provocador y autobiográfico, que mezcla temas como la religión, 
+                el cuerpo humano, la infancia y lo grotesco.
+            </p>
+            <h2 class="subtitulo">
+                Historia
+            </h2>
+            <p class="parrafo">
+                El juego sigue a Isaac,
+                un niño que huye al sótano de su casa para escapar de su madre, 
+                quien afirma haber recibido un mensaje de Dios ordenándole sacrificar a su hijo. 
+                Inspirado en la historia bíblica del mismo nombre, el juego mezcla temas oscuros, religiosos y psicológicos.
+            </p>
+            <h2 class=" subtitulo">
+                Jugabilidad
+            </h2>
+            <p class=" descripcion">
+                Es un roguelike con generación procedural: cada partida es única <br> 
+                Controlas a Isaac (u otros personajes desbloqueables) y debes recorrer múltiples pisos llenos de enemigos, jefes, ítems y secretos. <br>
+                Tiene un enfoque de twin-stick shooter (moverse con un stick, disparar con otro). <br>
+                Puedes encontrar centenares de objetos que alteran las habilidades, aspecto y poderes del personaje. <br>
+                Altamente rejugable y con múltiples finales
+            </p>
+            <div class= "botones">
+                <div class= "botones_izquierda">
+                    <button onclick="location.href='items/index_item.html'">
+                        items
+                    </button> 
+                    <button onclick="location.href='trincket/index_trincket.html'">
+                        trincket
+                    </button> 
+                    <button onclick="location.href='pildoras/index_pildoras.html'">
+                        pildoras
+                    </button> 
+                    <button onclick="location.href='cartas/index_cartas.html'">
+                        cartas
+                    </button> 
+                    <button onclick="location.href='personajes/index_personajes.html'">
+                        personajes
+                    </button>
                 </div>
-        <div>
+                    <button id="boton_derecha">
+                        encuesta  
+                    </button>
+                    <div id="formularioEncuesta" class="formulario">
+                        <div class="contenido_formulario">
+                            <span class="cerrar">&times;</span>
+                            <h3 class= "titulo_formulario">encuesta pagina</h3>
+                            <form id="Encuesta" action="#" method="post">
+                                <div id="mensajeExito">
+                                ¡Encuesta enviada con éxito!
+                                </div>
+                                <label for="nombre">nombre:</label>
+                                <input type="text" id="nombre" name="nombre">
+
+                                <label> en una escala del 1 a 5 que opinas de la pagina</label> <br>
+                                <input type="radio" id="1_estrella" name="valoracion" value="1_estrella">
+                                <label for="1_estrellas">muy mal</label><br><br>    
+                                <input type="radio" id="2_estrellas" name="valoracion" value="2_estrellas">
+                                <label for="2_estrellas">mal</label><br><br>
+                                <input type="radio" id="23_estrellas" name="valoracion" value="3_estrellas">
+                                <label for="3_estrellas">mas o menos</label><br><br>
+                                <input type="radio" id="4_estrellas" name="valoracion" value="4_estrellas">
+                                <label for="4_estrellas">bien</label><br><br>
+                                <input type="radio" id="5_estrellas" name="valoracion" value="5_estrellas">
+                                <label for="5_estrellas">muy bien</label><br><br>
+
+                                <label for="comentario">Comentarios:</label>
+                                <textarea id="comentario" name="comentario" rows="4"></textarea>
+
+                                <input type="submit" value="Enviar">
+                            </form>
+                        </div>  
+                    </div>
+            </div>
+        </div>    
     </body>
 </html>
 
