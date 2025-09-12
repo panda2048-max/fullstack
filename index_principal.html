@@ -3,21 +3,22 @@
     <head>
         <meta charset="UTF-8"> <!--lee caracteres especiales en el navegador-->
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="stylesheet" = href = "Style.css">
-        <title>
+        <link rel="stylesheet" = href = "Style.css"> <!-- importacion de style-->
+        <!-- titulo de la pagina en el apartado de ventanas-->
+        <title> 
             pagina de wikijuegos
         </title>
     </head>
     <body>
-        <div class="fondo">
-            <img src="logo2.jpg" alt="fondo" class="fondo-img">
-            <h1 class="titulo">
+        <div class="fondo"> <!-- creacion de clase para un fondo-->
+            <img src="logo2.jpg" alt="fondo" class="fondo-img"> <!--ponemos imagen de fondo y le asignamos una clase-->
+            <h1 class="titulo"> <!-- titulo de la pagina principal -->
                 la isaac
             </h1>
-            <h2 class="subtitulo">
+            <h2 class="subtitulo"> <!-- creamos clase para los subtitulos que ocuparemos-->
                 Creador
             </h2>
-            <p class="parrafo">
+            <p class="parrafo"> <!-- creamos clases para los parrafos-->
                 Edmund McMillen es un diseñador de videojuegos, 
                 artista y escritor estadounidense nacido en Santa Cruz, 
                 California en 1980. Es conocido por su estilo oscuro, 
@@ -36,16 +37,16 @@
             <h2 class=" subtitulo">
                 Jugabilidad
             </h2>
-            <p class=" descripcion">
-                Es un roguelike con generación procedural: cada partida es única <br> 
-                Controlas a Isaac (u otros personajes desbloqueables) y debes recorrer múltiples pisos llenos de enemigos, jefes, ítems y secretos. <br>
-                Tiene un enfoque de twin-stick shooter (moverse con un stick, disparar con otro). <br>
-                Puedes encontrar centenares de objetos que alteran las habilidades, aspecto y poderes del personaje. <br>
-                Altamente rejugable y con múltiples finales
+            <p class=" descripcion"> <!-- clase para las descripciion de objetos lleva saltos de linea-->
+                Es un roguelike con generación procedural: cada partida es única. 
+                Controlas a Isaac (u otros personajes desbloqueables) y debes recorrer múltiples pisos llenos de enemigos, jefes, ítems y secretos.
+                Tiene un enfoque de twin-stick shooter (moverse con un stick, disparar con otro).
+                Puedes encontrar centenares de objetos que alteran las habilidades, aspecto y poderes del personaje.
+                Altamente rejugable y con múltiples finales.
             </p>
-            <div class= "botones">
-                <div class= "botones_izquierda">
-                    <button onclick="location.href='items/index_item.html'">
+            <div class= "botones"> <!-- clase general de botones-->
+                <div class= "botones_izquierda"> <!-- clase de botones en especificos-->
+                    <button onclick="location.href='items/index_item.html'"> <!--funcion para que los botones envien a una pagina en especifico-->
                         items
                     </button> 
                     <button onclick="location.href='trincket/index_trincket.html'">
@@ -61,21 +62,21 @@
                         personajes
                     </button>
                 </div>
-                    <button id="boton_derecha">
+                    <button id="boton_derecha"> <!--clase de boton en especifico-->
                         encuesta  
                     </button>
-                    <div id="formularioEncuesta" class="formulario">
+                    <div id="formularioEncuesta" class="formulario"> <!--creacion de clase formulario e inico del apartado-->
                         <div class="contenido_formulario">
-                            <span class="cerrar">&times;</span>
-                            <h3 class= "titulo_formulario">encuesta pagina</h3>
-                            <form id="Encuesta" action="#" method="post">
-                                <div id="mensajeExito">
+                            <span class="cerrar">&times;</span> <!-- clase para el boton cerrar -->
+                            <h3 class= "titulo_formulario">encuesta pagina</h3> <!--titulo del formulario y su clase-->
+                            <form id="Encuesta" action="#" method="post"> 
+                                <div id="mensajeExito"> <!-- mensaje de encuesta realizada con exito-->
                                 ¡Encuesta enviada con éxito!
                                 </div>
-                                <label for="nombre">nombre:</label>
-                                <input type="text" id="nombre" name="nombre">
+                                <label for="nombre">nombre:</label> <!-- creamos el apartado para poner nombre-->
+                                <input type="text" id="nombre" name="nombre"> 
 
-                                <label> en una escala del 1 a 5 que opinas de la pagina</label> <br>
+                                <label> en una escala del 1 a 5 que opinas de la pagina</label> <br> <!-- creamos apartado para la valoracion de la página-->
                                 <input type="radio" id="1_estrella" name="valoracion" value="1_estrella">
                                 <label for="1_estrellas">muy mal</label><br><br>    
                                 <input type="radio" id="2_estrellas" name="valoracion" value="2_estrellas">
@@ -87,10 +88,10 @@
                                 <input type="radio" id="5_estrellas" name="valoracion" value="5_estrellas">
                                 <label for="5_estrellas">muy bien</label><br><br>
 
-                                <label for="comentario">Comentarios:</label>
+                                <label for="comentario">Comentarios:</label> <!--creamos apartado para comentarios-->
                                 <textarea id="comentario" name="comentario" rows="4"></textarea>
 
-                                <input type="submit" value="Enviar">
+                                <input type="submit" value="Enviar"> <!--apartado para boton enviar-->
                             </form>
                         </div>  
                     </div>
@@ -98,7 +99,7 @@
         </div>    
     </body>
 </html>
-
+ <!-- creamos script para la ejecucion correcta de la encuesta-->
 <script>
     // Seleccionamos los elementos
     var modal = document.getElementById("formularioEncuesta"); 
@@ -135,7 +136,7 @@
         // Limpiar formulario
         form.reset();
 
-        
+        // se cierra la encuesta luego de 3 segundos de enviar
         setTimeout(() => {
             mensaje.style.display = "none";
             modal.style.display = "none";
