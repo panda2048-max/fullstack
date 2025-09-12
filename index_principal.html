@@ -4,12 +4,43 @@
         <meta charset="UTF-8"> <!--lee caracteres especiales en el navegador-->
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" = href = "Style.css"> <!-- importacion de style-->
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
         <!-- titulo de la pagina en el apartado de ventanas-->
         <title> 
             pagina de wikijuegos
         </title>
     </head>
     <body>
+        <nav class="navbar navbar navbar-expand-lg bg-body-tertiary">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="index_principal.html">La isaac</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="index_principal.html">Inicio</a>
+                </li>
+                <li class="nav-item">
+                <a class="nav-link" href="/fullstack/items/index_item.html">items</a>
+                </li>
+                <li class="nav-item">
+                <a class="nav-link" href="/fullstack/personajes/index_personajes.html">personajes</a>
+                </li>
+                <li class="nav-item">
+                <a class="nav-link" href="/fullstack/cartas/index_cartas.html">cartas</a>
+                </li>
+                <li class="nav-item">
+                <a class="nav-link" href="/fullstack/pildoras/index_pildoras.html">pildoras</a>
+                </li>
+                <li class="nav-item">
+                <a class="nav-link" href="/fullstack/trincket/index_trincket.html">trincket</a>
+                </li>
+            </ul>
+            </div>
+        </div>
+        </nav>
         <div class="fondo"> <!-- creacion de clase para un fondo-->
             <img src="logo2.jpg" alt="fondo" class="fondo-img"> <!--ponemos imagen de fondo y le asignamos una clase-->
             <h1 class="titulo"> <!-- titulo de la pagina principal -->
@@ -45,22 +76,6 @@
                 Altamente rejugable y con múltiples finales.
             </p>
             <div class= "botones"> <!-- clase general de botones-->
-                <div class= "botones_izquierda"> <!-- clase de botones en especificos-->
-                    <button onclick="location.href='items/index_item.html'"> <!--funcion para que los botones envien a una pagina en especifico-->
-                        items
-                    </button> 
-                    <button onclick="location.href='trincket/index_trincket.html'">
-                        trincket
-                    </button> 
-                    <button onclick="location.href='pildoras/index_pildoras.html'">
-                        pildoras
-                    </button> 
-                    <button onclick="location.href='cartas/index_cartas.html'">
-                        cartas
-                    </button> 
-                    <button onclick="location.href='personajes/index_personajes.html'">
-                        personajes
-                    </button>
                 </div>
                     <button id="boton_derecha"> <!--clase de boton en especifico-->
                         encuesta  
