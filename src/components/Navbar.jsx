@@ -23,6 +23,7 @@ export default function Navbar() {
             <li className="nav-item"><Link className="nav-link" to="/items">Items</Link></li>
             <li className="nav-item"><Link className="nav-link" to="/personajes">Personajes</Link></li>
             <li className="nav-item"><Link className="nav-link" to="/cartas">Cartas</Link></li>
+            <li className="nav-item"><Link className="nav-link" to="/trincket">Trincket</Link></li>
           </ul>
         </div>
       </div>
