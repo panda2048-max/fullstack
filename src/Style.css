@@ -55,15 +55,7 @@ body{
     height: 68vh;
     margin-left: 25px;
 }
-/* Botones alineados a la izquierda en columna */
-.botones_izquierda {
-    position: absolute;
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-}
-/* Estilo general para botones */
-.botones_izquierda button,
+button,
 #boton_derecha {
     background-color: #bc25ca;
     color: white;
@@ -154,7 +146,6 @@ input[type=submit] {
 input[type=submit]:hover {
     background-color: #2d12c5;
 }
-
 
 #mensajeExito {
     display: none;
