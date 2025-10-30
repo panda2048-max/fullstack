@@ -1,6 +1,7 @@
 import React from "react";
 import TestRenderer, { act } from "react-test-renderer";
-import EncuestaModal from "../../src/components/EncuestaModal";
+import EncuestaModal from "../../src/components/EncuestaModal.jsx";
+
 
 describe("EncuestaModal", () => {
   let component;

@@ -9,19 +9,18 @@ module.exports = function(config) {
     },
     webpack: {
       mode: 'development',
+      resolve: { extensions: ['.js', '.jsx'] },
       module: {
         rules: [
           {
             test: /\.(js|jsx)$/,
             exclude: /node_modules/,
-            use: {
-              loader: 'babel-loader'
-            }
+            use: { loader: 'babel-loader' }
           }
-        ]
-      }
-    },
-    browsers: ['ChromeHeadless'],
+      ]
+    }
+  },
+    browsers: ['Chrome'],
     singleRun: false
   });
 };
