@@ -1,41 +1,48 @@
-/* Estilo para el fondo de la pagina*/
+/* Reinicia márgenes y padding de todos los elementos */
 * {
     margin: 0;
     padding: 0;
-    box-sizing: border-box;
+    box-sizing: border-box; /* Asegura que el padding no aumente el tamaño total */
 }
+
+/* Estilo base del cuerpo */
 body{
     font-family: Arial, Helvetica, sans-serif; /** tipo de letra **/
 }
+
+/* Contenedor del fondo */
 .fondo {
     position: relative;
-    width: 100vw;
-    height: 100vh;
-    overflow: hidden;
+    width: 100vw;   /* Ocupa todo el ancho de la ventana */
+    height: 100vh;  /* Ocupa todo el alto de la ventana */
+    overflow: hidden; /* Evita que la imagen sobresalga */
 }
 
+/* Imagen que se usa como fondo */
 .fondo-img {
     position: absolute;
     width: 100%;
     height: 100%;
-    object-fit: cover;
-    z-index: -1; /* Para que quede al fondo */
+    object-fit: cover; /* Ajusta la imagen para que rellene sin perder proporción */
+    z-index: -1; /* Para que quede detrás del contenido */
 }
 
-/* Estilo para los titulos*/
+/* Estilo para el título principal */
 .titulo{
     text-align: center;
     color: white;
     font-size: 50px;
 }
-/* Estilo para los subtitulos*/
+
+/* Estilo para subtítulos */
 .subtitulo{
     color: white;
     margin-left: 25px;
     font-size: 25px;
     margin-top: 10px;
 }
-/* Estilo para la descripcion*/
+
+/* Estilo para las descripciones */
 .descripcion{
     color: white;
     text-align: center;
@@ -43,18 +50,23 @@ body{
     font-size: 14px ;
     margin-top: 10px;
 }
-/* Estilo del parrafo*/
+
+/* Párrafos generales */
 .parrafo{
     color: white;
     text-align: center;
     font-size: 14px;
     margin-top: 10px;
 }
+
+/* Contenedor para los botones */
 .botones {
     position: relative;
-    height: 68vh;
+    height: 68vh;  /* Altura del área donde estarán los botones */
     margin-left: 25px;
 }
+
+/* Estilo general de botones */
 button,
 #boton_derecha {
     background-color: #bc25ca;
@@ -65,75 +77,77 @@ button,
     border-radius: 5px;
     cursor: pointer;
 }
-/* Botón en la esquina inferior derecha */
+
+/* Botón que se coloca abajo a la derecha */
 #boton_derecha {
     position: absolute;
     bottom: 20px;
     right: 20px;
-    background-color: #bc25ca;
-    color: white;
-    border: none;
-    padding: 10px 20px;
-    font-size: 16px;
-    border-radius: 5px;
-    cursor: pointer;
 }
 
-/* Estilo opcional al pasar el mouse */
+/* Efecto hover de todos los botones */
 button:hover {
     background-color: #9512a1;
 }
 #boton_derecha:hover{
     background-color: #9512a1;
 }
-/*estilo gormulario */
+
+/* Título del formulario */
 .titulo_formulario{
     text-align: center;
     margin-bottom: 20px;
     color:white;
 }
+
+/* Contenedor general del formulario (modal) */
 .formulario{
-    display: none;                          /* Oculto por defecto */
-    position: fixed;                        /* Se mantiene fijo aunque haya scroll */
-    z-index: 1000;                          /* Se superpone sobre otros elementos */
-    left: 0; top: 0;
+    display: none;               /* Oculto por defecto */
+    position: fixed;             /* Fijo en pantalla */
+    z-index: 1000;               /* Se superpone sobre todo */
+    left: 0; 
+    top: 0;
     width: 100%;
-    height: 100%;                                 /* Ocupa toda la pantalla */
-    overflow: auto;                               /* Permite scroll si el contenido es grande */
-    box-shadow: 0 8px 20px rgb(187, 38, 187);   /* añadimos sombras */
+    height: 100%;                /* Cubre toda la pantalla */
+    overflow: auto;              /* Agrega scroll si el contenido es grande */
+    box-shadow: 0 8px 20px rgb(187, 38, 187); /* Sombra */
     border-radius: 15px;
 }
+
+/* Estilo general de etiquetas */
 label{
-    font-weight: bold; /** texto en negrita **/
+    font-weight: bold;
     color: black;
 }
 
+/* Caja interna del formulario (contenido real) */
 .contenido_formulario{
-    background-color: #9512a1;         
-    margin: 10% auto;                 
-    padding: 20px;                     
-    border-radius: 10px;               
-    width: 400px;                      
-    max-width: 90%;
-    color: white;                    
+    background-color: #9512a1;
+    margin: 10% auto;         /* Centrado vertical y horizontal */
+    padding: 20px;            /* Espacio interno */
+    border-radius: 10px;      /* Bordes redondeados */
+    width: 400px;             /* Ancho fijo */
+    max-width: 90%;           /* Se adapta a pantallas pequeñas */
+    color: white;
 }
 
+/* Botón de cerrar (X) */
 .cerrar{
-    float: right;        
-    font-size: 24px;     
+    float: right;
+    font-size: 24px;
     font-weight: bold;
     cursor: pointer;
 }
 
-/*estilo de los input y text area */
+/* Estilo de los inputs y textarea */
 input[type=text], textarea {
-    width: 100%;        /* Ocupa todo el ancho del formulario */
-    padding: 8px;       /* Espacio interno */
-    margin: 5px 0 15px 0; /* Margen superior e inferior */
-    box-sizing: border-box; /* Para que padding no aumente el ancho */
+    width: 100%;
+    padding: 8px;
+    margin: 5px 0 15px 0;
+    box-sizing: border-box;
 }
 
-/* Botón de enviar formulario */
+/* Botón enviar del formulario */
 input[type=submit] {
     padding: 10px 20px;
     background-color: #2a169e;
@@ -142,11 +156,11 @@ input[type=submit] {
     border-radius: 5px;
     cursor: pointer;
 }
-
 input[type=submit]:hover {
     background-color: #2d12c5;
 }
 
+/* Mensaje de éxito del formulario */
 #mensajeExito {
     display: none;
     color: white;
@@ -154,8 +168,10 @@ input[type=submit]:hover {
     margin-bottom: 10px;
 }
 
+/* Estilo de los ítems de listas */
 ul li {
-  color: #00ffcc; /* turquesa */
+  color: white;
   font-size: 18px;
   font-weight: bold;
 }
+
