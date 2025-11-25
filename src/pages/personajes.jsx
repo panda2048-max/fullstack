@@ -1,23 +1,46 @@
+import { useState } from "react";
 import Navbar from "../components/Navbar";
 import "../Style.css";
 
-export default function Personajes(){
-    return(
-        <div>
-            <Navbar />
-            <div className="fondo">
-            <img src="/logo2.jpg" alt="fondo" className="fondo-img" />
-            <h1 className="titulo">Personajes</h1>
-            <h2 className="subtitulo">Cuales son los personajes en the Binding of Isaac</h2>
-            <p className="parrafo">
-                Cada personaje representa un aspecto del protagonista (Isaac) y tiene distintas estadísticas base, ítems iniciales y mecánicas únicas. <br />
-                Al desbloquear logros, se consiguen más personajes y versiones alternativas (“Tainted”). <br />
-                Cada personaje tiene una versión alternativa (Tainted) con mecánicas únicas y, en muchos casos, dificultad extra o estilo de juego totalmente distinto
-            </p>
-            <h2 className="subtitulo">Tipos de Personajes</h2>
-            <p className="parrafo"></p>
-            </div>
-        </div>
-    );
+export default function Personajes() {
+  const [personajes, setPersonajes] = useState([]);
+  const [cargando, setCargando] = useState(false);
 
+  const cargarPersonajes = async () => {
+    setCargando(true);
+
+    try {
+      const respuesta = await fetch("/api/character");
+      const datos = await respuesta.json();
+      setPersonajes(datos);
+    } catch (error) {
+      console.error("Error al cargar personajes:", error);
+    }
+
+    setCargando(false);
+  };
+
+  return (
+    <div>
+      <Navbar />
+
+      <div className="fondo">
+        <img src="/logo2.jpg" alt="fondo" className="fondo-img" />
+        <h1 className="titulo">Personajes</h1>
+
+        <h2 className="parrafo">En the binding of isaac existen 28 personajes con mecanicas distiantas que se diveden wn 2 tipos los normales y los tainted</h2>
+
+        <button onClick={cargarPersonajes}>Cargar Personajes</button>
+
+        {cargando && <p>Cargando...</p>}
+
+        <ul>
+          {personajes.map((p) => (
+            <li key={p.id}>{p.name} {p.health} {p.damage} {p.type}</li>
+          ))}
+        </ul>
+      </div>
+    </div>
+  );
 }
+
