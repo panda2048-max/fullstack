@@ -45,8 +45,21 @@ export default function Personajes() {
 
         {/* Texto informativo */}
         <h2 className="parrafo">
-          En The Binding of Isaac existen 28 personajes con mecánicas distintas 
-          que se dividen en 2 tipos: los normales y los tainted.
+          En The Binding of Isaac existen 34 personajes jugables cada personaje tiene mecanicas unicas, volviendo la jugabilidad totalmente variada, pero la mayor diferencia que tienen son los 2 tipos de categoria de personajes que son:
+        </h2>
+
+        <h1 className="titulo">Tipos de personajes </h1>
+
+        <h1 className="subtitulo">Normales </h1>
+        
+        <h2 className="parrafo">
+            los personajes normales se dividen en 17 personajes, que terminan siendo las personalidades distintas del personaje principal Isaac
+        </h2>
+
+        <h1 className="subtitulo">Tainted </h1>
+        
+        <h2 className="parrafo">
+            los personajes Tainted son 17 y son las versiones corrompidas de los normales, esto provoca que tenga mecanicas totalmente distintas en comparacion a los normales
         </h2>
 
         {/* Botón que ejecuta la carga desde la API */}
@@ -61,7 +74,7 @@ export default function Personajes() {
             // Cada item necesita un "key" único
             <li key={p.id}>
               {/* Se muestran los datos del objeto personaje */}
-              {p.name} {p.health} {p.damage} {p.type}
+              {p.name} <br /> {p.health} <br /> {p.damage} <br /> {p.type}
             </li>
           ))}
         </ul>
