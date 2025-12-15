@@ -3,65 +3,161 @@ import Navbar from "../components/Navbar";
 import "../Style.css";
 
 export default function Personajes() {
-  // Estado que guardará la lista de personajes recibidos desde la API
+  // ====== ESTADOS ======
   const [personajes, setPersonajes] = useState([]);
-
-  // Estado para mostrar si se está cargando la petición
   const [cargando, setCargando] = useState(false);
 
-  // Función que se ejecuta cuando apretas el botón "Cargar Personajes"
+  const [form, setForm] = useState({
+    name: "",
+    health: "",
+    damage: "",
+    type: ""
+  });
+
+  const [editandoId, setEditandoId] = useState(null);
+
+  // ====== CARGAR PERSONAJES ======
   const cargarPersonajes = async () => {
-    setCargando(true); // Activa el mensaje "Cargando..."
+    setCargando(true);
 
     try {
-      // Llamamos a la API (ruta configurada en el backend o proxy)
       const respuesta = await fetch("/api/character");
-
-      // Convertimos la respuesta en JSON
       const datos = await respuesta.json();
-
-      // Guardamos los datos en el estado
       setPersonajes(datos);
-
     } catch (error) {
-      // Si algo falla, lo mostramos en consola
       console.error("Error al cargar personajes:", error);
     }
 
-    setCargando(false); // Oculta el mensaje "Cargando..."
+    setCargando(false);
   };
 
+  // ====== MANEJAR INPUTS ======
+  const handleChange = (e) => {
+    setForm({
+      ...form,
+      [e.target.name]: e.target.value
+    });
+  };
+
+  // ====== AGREGAR / EDITAR ======
+  const guardarPersonaje = async () => {
+    const url = editandoId
+      ? `/api/character/${editandoId}`
+      : "/api/character";
+
+    const method = editandoId ? "PUT" : "POST";
+
+    try {
+      await fetch(url, {
+        method,
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify(form)
+      });
+
+      setForm({
+        name: "",
+        health: "",
+        damage: "",
+        type: ""
+      });
+
+      setEditandoId(null);
+      cargarPersonajes();
+    } catch (error) {
+      console.error("Error al guardar:", error);
+    }
+  };
+
+  // ====== EDITAR ======
+  const editarPersonaje = (personaje) => {
+    setForm({
+      name: personaje.name,
+      health: personaje.health,
+      damage: personaje.damage,
+      type: personaje.type
+    });
+
+    setEditandoId(personaje.id);
+  };
+
+  // ====== ELIMINAR ======
+  const eliminarPersonaje = async (id) => {
+    if (!window.confirm("¿Eliminar personaje?")) return;
+
+    try {
+      await fetch(`/api/character/${id}`, {
+        method: "DELETE"
+      });
+
+      cargarPersonajes();
+    } catch (error) {
+      console.error("Error al eliminar:", error);
+    }
+  };
+
+  // ====== JSX ======
   return (
     <div>
-      {/* Navbar visible en todas las páginas */}
       <Navbar />
 
-      {/* Contenedor principal con imagen de fondo */}
       <div className="fondo">
         <img src="/logo2.jpg" alt="fondo" className="fondo-img" />
 
-        {/* Título principal */}
         <h1 className="titulo">Personajes</h1>
 
-        {/* Texto informativo */}
         <h2 className="parrafo">
-          En The Binding of Isaac existen 28 personajes con mecánicas distintas 
+          En The Binding of Isaac existen 28 personajes con mecánicas distintas
           que se dividen en 2 tipos: los normales y los tainted.
         </h2>
 
-        {/* Botón que ejecuta la carga desde la API */}
         <button onClick={cargarPersonajes}>Cargar Personajes</button>
-
-        {/* Mensaje que aparece mientras se está cargando */}
         {cargando && <p>Cargando...</p>}
 
-        {/* Lista de personajes obtenidos */}
+        {/* ====== FORMULARIO ====== */}
+        <h2>{editandoId ? "Editar personaje" : "Agregar personaje"}</h2>
+
+        <input
+          name="name"
+          placeholder="Nombre"
+          value={form.name}
+          onChange={handleChange}
+        />
+
+        <input
+          name="health"
+          placeholder="Vida"
+          value={form.health}
+          onChange={handleChange}
+        />
+
+        <input
+          name="damage"
+          placeholder="Daño"
+          value={form.damage}
+          onChange={handleChange}
+        />
+
+        <input
+          name="type"
+          placeholder="Tipo"
+          value={form.type}
+          onChange={handleChange}
+        />
+
+        <button onClick={guardarPersonaje}>
+          {editandoId ? "Guardar cambios" : "Agregar"}
+        </button>
+
+        {/* ====== LISTA ====== */}
         <ul>
           {personajes.map((p) => (
-            // Cada item necesita un "key" único
             <li key={p.id}>
-              {/* Se muestran los datos del objeto personaje */}
-              {p.name} {p.health} {p.damage} {p.type}
+              {p.name} | HP: {p.health} | DMG: {p.damage} | {p.type}
+
+              <button onClick={() => editarPersonaje(p)}>Editar</button>
+              <button onClick={() => eliminarPersonaje(p.id)}>Eliminar</button>
             </li>
           ))}
         </ul>
@@ -69,5 +165,3 @@ export default function Personajes() {
     </div>
   );
 }
-
-

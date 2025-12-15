@@ -1,47 +1,106 @@
-// Importamos Express para crear el servidor
+// ===============================
+// IMPORTACIONES
+// ===============================
 import express from "express";
-
-// Importamos CORS para permitir peticiones desde el frontend
 import cors from "cors";
 
-// Creamos la aplicación Express
+// ===============================
+// CONFIGURACIÓN BÁSICA
+// ===============================
 const app = express();
-
-// Definimos el puerto donde correrá el servidor
 const port = 3001;
 
-// Habilitamos CORS para permitir peticiones desde React u otros dominios
-app.use(cors());
+// ===============================
+// MIDDLEWARES
+// ===============================
+app.use(cors()); // Permite peticiones desde React
+app.use(express.json()); // Permite leer JSON desde req.body
 
-/*
-  Ruta GET /api/character
-  Esta ruta sirve como "puente" entre tu frontend y la API de Xano.
-  Tu frontend le pega a tu backend, y este backend pide los datos a Xano.
-*/
+// URL BASE DE XANO
+const XANO_URL =
+  "https://x8ki-letl-twmt.n7.xano.io/api:76EojXIR/character";
+
+// ===============================
+// GET → OBTENER PERSONAJES
+// ===============================
 app.get("/api/character", async (req, res) => {
   try {
-    // Hacemos petición a la API de Xano (backend externo)
-    const respuesta = await fetch(
-      "https://x8ki-letl-twmt.n7.xano.io/api:76EojXIR/character"
-    );
-
-    // Convertimos la respuesta a JSON
+    const respuesta = await fetch(XANO_URL);
     const datos = await respuesta.json();
-
-    // Enviamos los datos al frontend
     res.json(datos);
-
   } catch (error) {
-    // Si algo falla, lo mostramos en consola
-    console.error("ERROR BACKEND:", error);
-
-    // Enviamos mensaje de error al frontend
-    res.status(500).json({ error: "No se pudo conectar a Xano" });
+    console.error("ERROR GET:", error);
+    res.status(500).json({ error: "No se pudo obtener personajes" });
   }
 });
 
-// Iniciamos el servidor y escuchamos en el puerto definido
-app.listen(port, () => {
-  console.log(`Servidor corriendo en el port: ${port}`);
+// ===============================
+// POST → CREAR PERSONAJE
+// ===============================
+app.post("/api/character", async (req, res) => {
+  try {
+    const respuesta = await fetch(XANO_URL, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify(req.body)
+    });
+
+    const datos = await respuesta.json();
+    res.status(201).json(datos);
+  } catch (error) {
+    console.error("ERROR POST:", error);
+    res.status(500).json({ error: "No se pudo crear personaje" });
+  }
 });
+
+// ===============================
+// PUT → EDITAR PERSONAJE
+// ===============================
+app.put("/api/character/:id", async (req, res) => {
+  const { id } = req.params;
+
+  try {
+    const respuesta = await fetch(`${XANO_URL}/${id}`, {
+      method: "PUT",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify(req.body)
+    });
+
+    const datos = await respuesta.json();
+    res.json(datos);
+  } catch (error) {
+    console.error("ERROR PUT:", error);
+    res.status(500).json({ error: "No se pudo editar personaje" });
+  }
+});
+
+// ===============================
+// DELETE → ELIMINAR PERSONAJE
+// ===============================
+app.delete("/api/character/:id", async (req, res) => {
+  const { id } = req.params;
+
+  try {
+    await fetch(`${XANO_URL}/${id}`, {
+      method: "DELETE"
+    });
+
+    res.json({ mensaje: "Personaje eliminado correctamente" });
+  } catch (error) {
+    console.error("ERROR DELETE:", error);
+    res.status(500).json({ error: "No se pudo eliminar personaje" });
+  }
+});
+
+// ===============================
+// INICIAR SERVIDOR
+// ===============================
+app.listen(port, () => {
+  console.log(`Servidor corriendo en http://localhost:${port}`);
+});
+
 
